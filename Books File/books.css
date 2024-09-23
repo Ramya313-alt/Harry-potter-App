@@ -1,0 +1,147 @@
+body{
+    font-family: "Trirong", serif;
+    background-color: rgb(12, 42, 72)
+}
+.sidenav {
+    height: 100%;
+    width: 300px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(to bottom, rgb(1, 9, 21), rgb(4, 4, 155),rgba(36, 3, 109, 0.493),rgb(5, 88, 99)) ;
+    overflow-x: hidden;
+    padding-top: 20px;
+  }
+  
+  .sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+  }
+  
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+  
+.hbook{
+    background-image: linear-gradient(to right, rgb(10, 0, 151), rgba(53, 51, 164, 0.975), rgb(69, 69, 225));
+}
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    color: #0f0f0f;
+}
+.btn:hover{
+    background-color:rgb(237, 230, 220);
+}
+
+.books-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    gap: 40px;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-left: 300px; /* Same as the width of the sidenav */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+.books-container > div {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.books-container img {
+    
+    width: 100%;
+    height: auto;
+    display: block;
+    align-items: center;
+    
+}
+
+h1, h2, h4, p {
+    margin: 10px;
+}
+
+.favorite {
+  font-size: 30px;
+  cursor: pointer;
+  color: #ccc; /* Grey star for non-favorite */
+  transition: color 0.3s ease;
+}
+
+.favorite.active {
+  color: gold; /* Gold star for favorite */
+}
+
+
+
+
+@media (max-width: 768px) {
+  /* Adjust sidenav for smaller screens */
+  .sidenav {
+      width: 200px; 
+  }
+
+  .books-container {
+      margin-left: 200px; /* Adjust margin to match sidenav width */
+      grid-template-columns: repeat(auto-fill, minmax(100%, 1fr)); /* Full-width books on smaller screens */
+      font-size: 20px; /* Reduce font size for readability */
+      padding: 10px;
+  }
+
+  /* Reduce image sizes for smaller screens */
+  .books-container img {
+      width: 100%;
+      height: auto;
+  }
+
+  /* Adjust book card layout */
+  .books-container > div {
+      padding: 10px;
+      font-size: 16px;
+  }
+
+  /* Adjust heading size for smaller screens */
+  h1 {
+      font-size: 24px;
+  }
+
+  .sidenav a {
+      font-size: 20px; /* Smaller font size for links in sidenav */
+  }
+}
+
+@media (max-width: 576px) {
+  /* Further adjustments for very small screens (e.g., mobile devices) */
+  .sidenav {
+      width: 150px; /* Make sidenav even narrower */
+  }
+
+  .books-container {
+      margin-left: 150px; /* Adjust margin to match narrower sidenav */
+      grid-template-columns: 1fr; /* Display books in a single column */
+      gap: 20px; /* Reduce gap between items */
+  }
+
+  .books-container > div {
+      font-size: 14px;
+  }
+
+  /* Adjust sidenav link size */
+  .sidenav a {
+      font-size: 18px;
+  }
+
+  /* Smaller heading size for mobile */
+  h1 {
+      font-size: 20px;
+  }
+}

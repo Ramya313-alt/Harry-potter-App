@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorite Books</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: "Arial", sans-serif;
+            background-color: #f0f0f0;
+        }
+        .favorite {
+            cursor: pointer;
+            font-size: 24px;
+            color: gold;
+        }
+        .not-favorite {
+            cursor: pointer;
+            font-size: 24px;
+            color: lightgray;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center mt-4">Books</h1>
+        <div class="row" id="books-container"></div>
+    </div>
+
+    <script>
+        const booksContainer = document.querySelector('#books-container');
+        let favoriteBooks = JSON.parse(localStorage.getItem('favoriteBooks')) || [];
+
+        // Fetch books on window load
+        window.onload = async () => {
+            try {
+                const getBooks = await fetch('https://potterapi-fedeperin.vercel.app/en/books');
+                const booksList = await getBooks.json();
+                displayBooks(booksList);
+            } catch (error) {
+                console.log(error);
+            }
+        };
+
+        // Function to display books
+        const displayBooks = (booksList) => {
+            booksContainer.innerHTML = ''; // Clear the container before adding books
+
+            booksList.forEach((book) => {
+                const { title, cover } = book;
+                const isFavorite = favoriteBooks.includes(title);
+
+                const html = `
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <img src="${cover}" class="card-img-top" alt="${title}">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">${title}</h5>
+                            <span class="${isFavorite ? 'favorite' : 'not-favorite'}" onclick="toggleFavorite('${title}')">
+                                ${isFavorite ? '★' : '☆'}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                `;
+                booksContainer.innerHTML += html;
+            });
+        };
+
+        // Function to toggle favorite status
+        const toggleFavorite = (bookTitle) => {
+            const index = favoriteBooks.indexOf(bookTitle);
+
+            if (index === -1) {
+                // Add book to favorites
+                favoriteBooks.push(bookTitle);
+            } else {
+                // Remove book from favorites
+                favoriteBooks.splice(index, 1);
+            }
+
+            // Update local storage
+            localStorage.setItem('favoriteBooks', JSON.stringify(favoriteBooks));
+
+            // Re-render books with updated favorite status
+            displayBooks(JSON.parse(localStorage.getItem('favoriteBooks')) || []);
+        };
+    </script>
+</body>
+</html>

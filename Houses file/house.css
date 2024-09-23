@@ -1,0 +1,45 @@
+body{
+    font-family: "Trirong", serif;
+   background-image: linear-gradient(to right, rgb(8, 2, 94), rgba(230, 73, 42, 0.975), rgb(24, 100, 151));
+}
+.househeading{
+    background-image: linear-gradient(to right, rgb(8, 2, 94), rgba(36, 33, 178, 0.975), rgb(69, 69, 225));
+}
+.btn:hover{
+    background-color: gainsboro;
+}
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    color: #141313;
+}
+
+
+.House-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 40px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.House-container > div {
+    background-color:gainsboro;
+    border: 1px solid #ebdede;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.House-container img {
+    
+    width: 100%;
+    height: auto;
+    display: block;
+    align-items: center;
+    
+}
+
+h1, h2, h4 {
+    margin: 10px;
+}

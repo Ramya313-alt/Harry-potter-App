@@ -1,0 +1,48 @@
+body{
+    font-family: "Trirong", serif;
+    background-image: linear-gradient(to right, rgb(8, 2, 94), rgb(241, 45, 45),rgba(10, 10, 106, 0.34));
+
+}
+
+.spellheading{
+    background-image: linear-gradient(to right, rgb(8, 2, 94), rgba(36, 33, 178, 0.975), rgb(69, 69, 225));
+}
+.btn:hover{
+    background-color: gainsboro;
+}
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    color: #141313;
+}
+
+
+.spell-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 40px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+
+.spell-container > div {
+    background-color:gainsboro;
+    border: 1px solid #080808;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.spell-container img {
+    
+    width: 100%;
+    height: auto;
+    display: block;
+    align-items: center;
+    
+}
+
+h1, h3 {
+    margin: 10px;
+}
